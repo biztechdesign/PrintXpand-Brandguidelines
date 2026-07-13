@@ -336,9 +336,9 @@ input,textarea,select{font-family:inherit}
   display:flex;align-items:center;gap:10px;
 }
 .cover-headline{
-  font-size:clamp(72px,9vw,130px);
+  font-size:80px;
   font-weight:700;font-family:var(--font-heading);
-  color:#363636;line-height:.9;letter-spacing:-3px;
+  color:#363636;line-height:.95;letter-spacing:-2px;
   margin-bottom:0;
 }
 .cover-headline span{color:#eb4d1d;-webkit-text-fill-color:#eb4d1d}
@@ -353,8 +353,11 @@ input,textarea,select{font-family:inherit}
 .cover-meta-label{font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--c-text-muted)}
 .cover-meta-value{font-size:var(--fs-sm);font-weight:600;color:var(--c-text)}
 .cover-meta-sep{width:1px;height:36px;background:rgba(54,54,54,.28)}
-.cover-deco{display:none}
-.cover-deco svg{width:420px;height:auto}
+.cover-deco{
+  position:absolute;right:80px;top:44%;transform:translateY(-50%);
+  opacity:.08;pointer-events:none;z-index:0;
+}
+.cover-deco img{width:400px;height:auto;display:block}
 
 /* ============================================================
    01 — BRAND OVERVIEW
@@ -1406,26 +1409,22 @@ input,textarea,select{font-family:inherit}
     <div class="cover-circle c3"></div>
   </div>
 
-  <!-- Decorative large logo watermark — opacity comes from .cover-deco -->
+  <!-- Decorative PX mark watermark — right side -->
   <div class="cover-deco" aria-hidden="true">
-    <img src="img/logo.svg" style="width:420px;height:auto;display:block">
+    <img src="img/favicon.svg">
   </div>
 
   <div class="cover-inner">
 
-    <!-- Header: logo left, eyebrow + page number right -->
+    <!-- Header: logo left only -->
     <div class="cover-header">
       <div class="cover-logo">
-        <img src="img/logo.svg" style="width:220px;height:auto;display:block">
-      </div>
-      <div class="cover-header-right">
-        <p class="cover-eyebrow">Official Brand Document · v1.0 · June 2026</p>
+        <img src="img/logo.svg" style="width:300px;height:auto;display:block">
       </div>
     </div>
 
-    <!-- Hero: edition label + large headline -->
+    <!-- Hero: large headline — vertically centred -->
     <div class="cover-hero">
-      <p class="cover-edition">The 2026 Edition</p>
       <h1 class="cover-headline">Brand<br><span>Guidelines.</span></h1>
     </div>
 
