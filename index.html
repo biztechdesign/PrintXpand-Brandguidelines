@@ -295,23 +295,23 @@ input,textarea,select{font-family:inherit}
 /* ============================================================
    COVER
    ============================================================ */
-#cover{background:#1e0803}
+#cover{background:var(--c-bg)}
 .cover-bg{
   position:absolute;inset:0;
-  background:linear-gradient(135deg,#1e0803 0%,#7a2208 40%,#c03412 75%,#eb4d1d 100%);
+  background:linear-gradient(135deg,#ffffff 0%,#FBFAF5 42%,#FDEAE3 100%);
 }
 .cover-grid{
   position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(235,77,29,.12) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(235,77,29,.12) 1px,transparent 1px);
+    linear-gradient(rgba(235,77,29,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(235,77,29,.08) 1px,transparent 1px);
   background-size:64px 64px;
 }
 .cover-circles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .cover-circle{position:absolute;border-radius:50%}
-.cover-circle.c1{width:640px;height:640px;right:-120px;top:-200px;background:radial-gradient(circle,rgba(235,77,29,.18) 0%,transparent 70%)}
-.cover-circle.c2{width:420px;height:420px;left:-80px;bottom:-80px;background:radial-gradient(circle,rgba(196,57,24,.2) 0%,transparent 70%)}
-.cover-circle.c3{width:280px;height:280px;right:240px;bottom:120px;background:radial-gradient(circle,rgba(253,234,227,.1) 0%,transparent 70%)}
+.cover-circle.c1{width:640px;height:640px;right:-120px;top:-200px;background:radial-gradient(circle,rgba(235,77,29,.10) 0%,transparent 70%)}
+.cover-circle.c2{width:420px;height:420px;left:-80px;bottom:-80px;background:radial-gradient(circle,rgba(196,57,24,.08) 0%,transparent 70%)}
+.cover-circle.c3{width:280px;height:280px;right:240px;bottom:120px;background:radial-gradient(circle,rgba(244,122,85,.12) 0%,transparent 70%)}
 
 .cover-inner{
   position:relative;z-index:1;
@@ -321,29 +321,29 @@ input,textarea,select{font-family:inherit}
 }
 .cover-eyebrow{
   font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
-  color:rgba(255,255,255,.4);margin-bottom:36px;
+  color:var(--c-secondary);margin-bottom:36px;
   display:flex;align-items:center;gap:12px;
 }
-.cover-eyebrow::before{content:'';width:28px;height:1px;background:rgba(255,255,255,.28)}
+.cover-eyebrow::before{content:'';width:28px;height:1px;background:rgba(196,57,24,.4)}
 .cover-logo{margin-bottom:44px}
 .cover-logo svg{width:320px;height:auto}
 .cover-headline{
   font-size:clamp(44px,5.5vw,80px);
   font-weight:700;font-family:var(--font-heading);
-  color:#fff;line-height:.96;letter-spacing:-1px;
+  color:var(--c-text);line-height:.96;letter-spacing:-1px;
   margin-bottom:22px;
 }
 .cover-headline span{
-  background:linear-gradient(90deg,#F47A55,#FDEAE3);
+  background:linear-gradient(90deg,#C43918,#EB4D1D);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   background-clip:text;
 }
-.cover-sub{font-size:var(--fs-xl);color:rgba(255,255,255,.58);max-width:480px;line-height:1.65;margin-bottom:52px}
+.cover-sub{font-size:var(--fs-xl);color:var(--c-text-muted);max-width:480px;line-height:1.65;margin-bottom:52px}
 .cover-meta{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
 .cover-meta-item{display:flex;flex-direction:column;gap:3px}
-.cover-meta-label{font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.32)}
-.cover-meta-value{font-size:var(--fs-sm);font-weight:600;color:rgba(255,255,255,.72)}
-.cover-meta-sep{width:1px;height:36px;background:rgba(255,255,255,.15)}
+.cover-meta-label{font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--c-text-muted)}
+.cover-meta-value{font-size:var(--fs-sm);font-weight:600;color:var(--c-text)}
+.cover-meta-sep{width:1px;height:36px;background:var(--c-border)}
 .cover-deco{
   position:absolute;right:72px;top:50%;transform:translateY(-50%);
   opacity:.07;pointer-events:none;
@@ -1400,17 +1400,17 @@ input,textarea,select{font-family:inherit}
     <div class="cover-circle c3"></div>
   </div>
 
-  <!-- Decorative large logo watermark -->
+  <!-- Decorative large logo watermark — opacity comes from .cover-deco -->
   <div class="cover-deco" aria-hidden="true">
-    <img src="img/logo-white.svg" style="width:420px;height:auto;opacity:.07;display:block">
+    <img src="img/logo.svg" style="width:420px;height:auto;display:block">
   </div>
 
   <div class="cover-inner">
     <p class="cover-eyebrow">Official Brand Document · v1.0 · June 2026</p>
 
-    <!-- White logo for dark cover background -->
+    <!-- Primary full-colour logo on the light cover background -->
     <div class="cover-logo">
-      <img src="img/logo-white.svg" style="width:340px;height:auto;display:block">
+      <img src="img/logo.svg" style="width:340px;height:auto;display:block">
     </div>
 
     <h1 class="cover-headline">Brand<br><span>Guidelines</span></h1>
@@ -1611,7 +1611,8 @@ input,textarea,select{font-family:inherit}
 
       <div class="misuse-card">
         <div class="misuse-visual">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" style="width:140px;height:auto;filter:drop-shadow(0 0 0 2px #C43918)"><use href="#px-logo-color"/></svg>
+          <!-- Chained drop-shadows ring the logo without touching its fills -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" style="width:140px;height:auto;filter:drop-shadow(1.1px 0 0 #2563EB) drop-shadow(-1.1px 0 0 #2563EB) drop-shadow(0 1.1px 0 #2563EB) drop-shadow(0 -1.1px 0 #2563EB)"><use href="#px-logo-color"/></svg>
         </div>
         <span class="misuse-badge">No Outlines</span>
         <p class="misuse-desc">Never add strokes, outlines, or borders to logo elements</p>
@@ -1619,7 +1620,14 @@ input,textarea,select{font-family:inherit}
 
       <div class="misuse-card">
         <div class="misuse-visual">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" style="width:140px;height:auto"><use href="#px-logo-color"/></svg>
+          <!-- Each svg crops one element of the lockup; the pieces are then stacked and swapped -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:7px">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="84 7 31 28" style="width:23px;height:auto"><use href="#px-logo-color" width="220" height="60"/></svg>
+            <div style="display:flex;align-items:flex-start;gap:14px">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="113 3 93 40" style="width:70px;height:auto"><use href="#px-logo-color" width="220" height="60"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 3 84 31" style="width:63px;height:auto"><use href="#px-logo-color" width="220" height="60"/></svg>
+            </div>
+          </div>
         </div>
         <span class="misuse-badge">No Rearranging</span>
         <p class="misuse-desc">Never rearrange, stack, or separate logo elements arbitrarily</p>
@@ -1627,12 +1635,11 @@ input,textarea,select{font-family:inherit}
 
       <div class="misuse-card">
         <div class="misuse-visual">
-          <div style="padding:8px 12px;background:rgba(50,79,195,0.08);border-radius:6px">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" style="width:120px;height:auto;opacity:0.3"><use href="#px-logo-color"/></svg>
-          </div>
+          <!-- The actual legacy Brush Your Ideas mark — this is what must never be used -->
+          <img src="img/logo-legacy-byi.svg" alt="Legacy Brush Your Ideas logo" style="width:152px;height:auto;display:block">
         </div>
         <span class="misuse-badge">No Old Logo</span>
-        <p class="misuse-desc">Never use unauthorised or legacy logo versions</p>
+        <p class="misuse-desc">Never use the legacy Brush Your Ideas logo or any unauthorised version</p>
       </div>
 
       <div class="misuse-card">
