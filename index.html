@@ -310,40 +310,50 @@ input,textarea,select{font-family:inherit}
 .cover-circle.c2{width:420px;height:420px;left:-80px;bottom:-80px;background:radial-gradient(circle,rgba(196,57,24,.08) 0%,transparent 70%)}
 .cover-circle.c3{width:280px;height:280px;right:240px;bottom:120px;background:radial-gradient(circle,rgba(244,122,85,.12) 0%,transparent 70%)}
 
+/* Cover layout — 3-row: header / hero / footer */
 .cover-inner{
   position:relative;z-index:1;
-  display:flex;flex-direction:column;justify-content:center;
-  min-height:100vh;padding:80px 72px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:100vh;padding:64px 80px;
   max-width:1280px;margin:0 auto;
 }
+/* ── Header row: logo left · eyebrow + page-num right */
+.cover-header{display:flex;justify-content:space-between;align-items:flex-start}
+.cover-header-right{text-align:right}
 .cover-eyebrow{
   font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
-  color:var(--c-secondary);margin-bottom:36px;
-  display:flex;align-items:center;gap:12px;
+  color:var(--c-text-muted);margin-bottom:4px;
+  display:flex;align-items:center;justify-content:flex-end;gap:12px;
 }
-.cover-eyebrow::before{content:'';width:28px;height:1px;background:rgba(196,57,24,.4)}
-.cover-logo{margin-bottom:44px}
-.cover-logo svg{width:320px;height:auto}
+.cover-eyebrow::before{display:none}
+.cover-logo{margin-bottom:0}
+.cover-logo svg{width:220px;height:auto}
+/* ── Hero: edition label + big headline — vertically centred */
+.cover-hero{flex:1;display:flex;flex-direction:column;justify-content:center}
+.cover-edition{
+  font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--c-secondary);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
 .cover-headline{
-  font-size:clamp(44px,5.5vw,80px);
+  font-size:clamp(72px,9vw,130px);
   font-weight:700;font-family:var(--font-heading);
-  color:var(--c-text);line-height:.96;letter-spacing:-1px;
-  margin-bottom:22px;
+  color:#363636;line-height:.9;letter-spacing:-3px;
+  margin-bottom:0;
 }
-.cover-headline span{
-  color:#eb4d1d;
-  -webkit-text-fill-color:#eb4d1d;
+.cover-headline span{color:#eb4d1d;-webkit-text-fill-color:#eb4d1d}
+/* ── Footer row: subtitle left · meta right */
+.cover-footer{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  border-top:1px solid rgba(54,54,54,.25);padding-top:28px;
 }
-.cover-sub{font-size:var(--fs-xl);color:var(--c-text-muted);max-width:480px;line-height:1.65;margin-bottom:52px}
-.cover-meta{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
+.cover-sub{font-size:var(--fs-md);color:var(--c-text-muted);max-width:460px;line-height:1.65;margin-bottom:0}
+.cover-meta{display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap;justify-content:flex-end}
 .cover-meta-item{display:flex;flex-direction:column;gap:3px}
 .cover-meta-label{font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--c-text-muted)}
 .cover-meta-value{font-size:var(--fs-sm);font-weight:600;color:var(--c-text)}
-.cover-meta-sep{width:1px;height:36px;background:var(--c-border)}
-.cover-deco{
-  position:absolute;right:72px;top:50%;transform:translateY(-50%);
-  opacity:.07;pointer-events:none;
-}
+.cover-meta-sep{width:1px;height:36px;background:rgba(54,54,54,.28)}
+.cover-deco{display:none}
 .cover-deco svg{width:420px;height:auto}
 
 /* ============================================================
@@ -1402,32 +1412,44 @@ input,textarea,select{font-family:inherit}
   </div>
 
   <div class="cover-inner">
-    <p class="cover-eyebrow">Official Brand Document · v1.0 · June 2026</p>
 
-    <!-- Primary full-colour logo on the light cover background -->
-    <div class="cover-logo">
-      <img src="img/logo.svg" style="width:340px;height:auto;display:block">
-    </div>
-
-    <h1 class="cover-headline">Brand<br><span>Guidelines</span></h1>
-    <p class="cover-sub">The complete visual identity, design system, and usage standards for the redesigned PrintXpand brand.</p>
-
-    <div class="cover-meta">
-      <div class="cover-meta-item">
-        <span class="cover-meta-label">Version</span>
-        <span class="cover-meta-value">v1.0 · June 2026</span>
+    <!-- Header: logo left, eyebrow + page number right -->
+    <div class="cover-header">
+      <div class="cover-logo">
+        <img src="img/logo.svg" style="width:220px;height:auto;display:block">
       </div>
-      <div class="cover-meta-sep"></div>
-      <div class="cover-meta-item">
-        <span class="cover-meta-label">Company</span>
-        <span class="cover-meta-value">A Biztech Company</span>
-      </div>
-      <div class="cover-meta-sep"></div>
-      <div class="cover-meta-item">
-        <span class="cover-meta-label">Category</span>
-        <span class="cover-meta-value">Print / E-commerce / SaaS</span>
+      <div class="cover-header-right">
+        <p class="cover-eyebrow">Official Brand Document · v1.0 · June 2026</p>
       </div>
     </div>
+
+    <!-- Hero: edition label + large headline -->
+    <div class="cover-hero">
+      <p class="cover-edition">The 2026 Edition</p>
+      <h1 class="cover-headline">Brand<br><span>Guidelines.</span></h1>
+    </div>
+
+    <!-- Footer: subtitle left, meta right -->
+    <div class="cover-footer">
+      <p class="cover-sub">The complete visual identity, design system, and usage standards for the redesigned PrintXpand brand.</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Version</span>
+          <span class="cover-meta-value">v1.0 · June 2026</span>
+        </div>
+        <div class="cover-meta-sep"></div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Company</span>
+          <span class="cover-meta-value">A Biztech Company</span>
+        </div>
+        <div class="cover-meta-sep"></div>
+        <div class="cover-meta-item">
+          <span class="cover-meta-label">Category</span>
+          <span class="cover-meta-value">Print / E-commerce / SaaS</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
