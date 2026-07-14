@@ -316,6 +316,7 @@ input,textarea,select{font-family:inherit}
   display:flex;flex-direction:column;justify-content:space-between;
   min-height:100vh;padding:64px 80px;
   max-width:1280px;margin:0 auto;
+  overflow:hidden;
 }
 /* ── Header row: logo left · eyebrow + page-num right */
 .cover-header{display:flex;justify-content:space-between;align-items:flex-start}
@@ -353,11 +354,16 @@ input,textarea,select{font-family:inherit}
 .cover-meta-label{font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--c-text-muted)}
 .cover-meta-value{font-size:var(--fs-sm);font-weight:600;color:var(--c-text)}
 .cover-meta-sep{width:1px;height:36px;background:rgba(54,54,54,.28)}
-.cover-deco{
-  position:absolute;right:80px;top:41%;transform:translateY(-50%);
+#cover::before{
+  content:'';
+  position:absolute;
+  right:max(80px, calc((100% - 1280px) / 2 + 80px));
+  top:43%;transform:translateY(-50%);
+  width:26vw;max-width:380px;
+  aspect-ratio:229/162;
+  background:url('img/favicon.svg') no-repeat center/contain;
   opacity:.08;pointer-events:none;z-index:0;
 }
-.cover-deco img{width:400px;height:auto;display:block}
 
 /* ============================================================
    01 — BRAND OVERVIEW
@@ -1227,7 +1233,7 @@ input,textarea,select{font-family:inherit}
   .color-row{grid-template-columns:repeat(2,1fr)}
   .icon-style-grid{grid-template-columns:repeat(4,1fr)}
   .web-spec-grid{grid-template-columns:1fr}
-  .cover-deco{display:none}
+
   .section-num{font-size:64px;right:24px}
   .slide-inner{padding:60px 32px}
 }
@@ -1407,11 +1413,6 @@ input,textarea,select{font-family:inherit}
     <div class="cover-circle c1"></div>
     <div class="cover-circle c2"></div>
     <div class="cover-circle c3"></div>
-  </div>
-
-  <!-- Decorative PX mark watermark — right side -->
-  <div class="cover-deco" aria-hidden="true">
-    <img src="img/favicon.svg">
   </div>
 
   <div class="cover-inner">
